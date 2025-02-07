@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web
+  name: web-app
 spec:
   selector:
     matchLabels:
-      app: webs-app
+      app: web-app
   replicas: 2 # tells deployment to run 3 pods matching the template
   template:
     metadata:
       labels:
-        app: webserver
+        app: web-app
     spec:
       containers:
-      - name: webserver-alex
-        image: alexandrubyte/kube_learn
+      - name: web-app
+        image: alexandrubyte/webserver
         ports:
         - containerPort: 80
