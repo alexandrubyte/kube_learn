@@ -4,7 +4,7 @@ metadata:
   name: web-service
 spec:
   selector: 
-    app: web-myapp
+    app: web-app
   ports:
   - port: 8080
   protocol: TCP
