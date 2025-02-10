@@ -22,3 +22,30 @@ spec:
     automated:
       selfHeal: true
       prune: true
+
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helmArgo
+  namespace: argocd 
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/alexandrubyte/kube_learn.git
+    targetRevision: HEAD
+    path: dev/new_helm+argo/argoHelm-app
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: myapp
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
